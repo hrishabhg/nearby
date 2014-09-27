@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  device_type: 1
+  device_token: MyString
+  is_active: false
+
+two:
+  device_type: 1
+  device_token: MyString
+  is_active: false

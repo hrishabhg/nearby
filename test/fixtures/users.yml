@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  first_name: MyString
+  last_name: MyString
+  register_date: 2014-09-27 15:08:14
+  is_verified: false
+  is_active: false
+  is_individual: false
+  is_seller: false
+  is_seller_verified: false
+  preferred_contact_id: 1
+
+two:
+  username: MyString
+  first_name: MyString
+  last_name: MyString
+  register_date: 2014-09-27 15:08:14
+  is_verified: false
+  is_active: false
+  is_individual: false
+  is_seller: false
+  is_seller_verified: false
+  preferred_contact_id: 1

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contact_type: 1
+  contact: MyString
+  is_verified: false
+  is_active: false
+  verify_attempt_count: 1
+  created_by: 1
+  user_id: 
+
+two:
+  contact_type: 1
+  contact: MyString
+  is_verified: false
+  is_active: false
+  verify_attempt_count: 1
+  created_by: 1
+  user_id: 

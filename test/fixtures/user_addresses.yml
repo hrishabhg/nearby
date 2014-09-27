@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  flat_no: MyString
+  street: MyString
+  pincode: 1
+  city_id: 
+  is_default: false
+  is_active: false
+
+two:
+  user_id: 
+  flat_no: MyString
+  street: MyString
+  pincode: 1
+  city_id: 
+  is_default: false
+  is_active: false
