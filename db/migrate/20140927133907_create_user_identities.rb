@@ -5,7 +5,7 @@ class CreateUserIdentities < ActiveRecord::Migration
       t.integer :adapter
       t.integer :adapter_identifier
       t.string :hash
-      t.boolean :is_active, :default => 0
+      t.boolean :is_active, :default => false
 
       t.timestamps
     end

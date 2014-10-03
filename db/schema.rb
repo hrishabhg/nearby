@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20140927141942) do
     t.string   "street"
     t.integer  "pincode"
     t.integer  "city_id"
-    t.boolean  "is_default"
-    t.boolean  "is_active"
+    t.boolean  "is_default", default: false
+    t.boolean  "is_active",  default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(version: 20140927141942) do
 
   create_table "user_contacts", force: true do |t|
     t.integer  "user_id"
-    t.integer  "contact_type"
+    t.integer  "contact_type",         default: 0
     t.string   "contact"
-    t.boolean  "is_verified"
-    t.boolean  "is_active"
-    t.integer  "verify_attempt_count"
+    t.boolean  "is_verified",          default: false
+    t.boolean  "is_active",            default: true
+    t.integer  "verify_attempt_count", default: 0
     t.integer  "created_by"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 20140927141942) do
     t.integer  "user_id"
     t.string   "detail_name"
     t.string   "detail_value"
-    t.integer  "privacy_level", limit: 1
-    t.boolean  "is_active"
+    t.integer  "privacy_level", limit: 1, default: 0
+    t.boolean  "is_active",               default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20140927141942) do
     t.integer  "user_id"
     t.integer  "device_type",  limit: 1
     t.string   "device_token"
-    t.boolean  "is_active"
+    t.boolean  "is_active",              default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20140927141942) do
     t.integer  "adapter"
     t.integer  "adapter_identifier"
     t.string   "hash"
-    t.boolean  "is_active"
+    t.boolean  "is_active",          default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -92,10 +92,10 @@ ActiveRecord::Schema.define(version: 20140927141942) do
     t.string   "name"
     t.text     "description"
     t.decimal  "price",           precision: 10, scale: 2
-    t.integer  "price_type"
+    t.integer  "price_type",                               default: 0
     t.decimal  "advance_payment", precision: 10, scale: 2
-    t.boolean  "is_negotiable"
-    t.boolean  "is_active"
+    t.boolean  "is_negotiable",                            default: false
+    t.boolean  "is_active",                                default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -115,11 +115,11 @@ ActiveRecord::Schema.define(version: 20140927141942) do
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "register_date"
-    t.boolean  "is_verified"
-    t.boolean  "is_active"
-    t.boolean  "is_individual"
-    t.boolean  "is_seller"
-    t.boolean  "is_seller_verified"
+    t.boolean  "is_verified",          default: false
+    t.boolean  "is_active",            default: false
+    t.boolean  "is_individual",        default: true
+    t.boolean  "is_seller",            default: false
+    t.boolean  "is_seller_verified",   default: false
     t.integer  "preferred_contact_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -7,8 +7,8 @@ class CreateUserItems < ActiveRecord::Migration
       t.decimal :price, precision: 10, scale: 2
       t.integer :price_type, :default => 0
       t.decimal :advance_payment, precision: 10, scale: 2
-      t.boolean :is_negotiable, :default => 0
-      t.boolean :is_active, :default => 1
+      t.boolean :is_negotiable, :default => false
+      t.boolean :is_active, :default => true
 
       t.timestamps
     end

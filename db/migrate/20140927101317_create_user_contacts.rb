@@ -4,8 +4,8 @@ class CreateUserContacts < ActiveRecord::Migration
       t.references :user, index: true
       t.integer :contact_type, :default => 0
       t.string :contact
-      t.boolean :is_verified, :default => 0
-      t.boolean :is_active, :default => 1
+      t.boolean :is_verified, :default => false
+      t.boolean :is_active, :default => true
       t.integer :verify_attempt_count, :default => 0
       t.integer :created_by
 

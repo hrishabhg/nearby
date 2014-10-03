@@ -6,8 +6,8 @@ class CreateUserAddresses < ActiveRecord::Migration
       t.string :street
       t.integer :pincode
       t.references :city, index: true
-      t.boolean :is_default, :default => 0
-      t.boolean :is_active, :default => 1
+      t.boolean :is_default, :default => false
+      t.boolean :is_active, :default => true
 
       t.timestamps
     end

@@ -4,8 +4,8 @@ class CreateUserDetails < ActiveRecord::Migration
       t.references :user, index: true
       t.string :detail_name
       t.string :detail_value
-      t.integer :privacy_level, :limit => 1
-      t.boolean :is_active, :default => 1
+      t.integer :privacy_level, :limit => 1, :default => 0
+      t.boolean :is_active, :default => true
 
       t.timestamps
     end

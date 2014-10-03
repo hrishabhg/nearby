@@ -4,7 +4,7 @@ class CreateUserDevices < ActiveRecord::Migration
       t.references :user, :index => true
       t.integer :device_type, :limit => 1
       t.string :device_token
-      t.boolean :is_active, :default => 1
+      t.boolean :is_active, :default => true
 
       t.timestamps
     end
