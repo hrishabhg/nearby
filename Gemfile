@@ -41,4 +41,5 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'paperclip'
 

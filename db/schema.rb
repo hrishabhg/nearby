@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140927141942) do
+ActiveRecord::Schema.define(version: 20141003091043) do
+
+  create_table "locations", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.decimal  "latitude",    precision: 10, scale: 3, default: 0.0
+    t.decimal  "longitude",   precision: 10, scale: 3, default: 0.0
+    t.boolean  "is_active",                            default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_activities", force: true do |t|
     t.integer  "user_id"
@@ -87,6 +97,16 @@ ActiveRecord::Schema.define(version: 20140927141942) do
 
   add_index "user_identities", ["user_id"], name: "index_user_identities_on_user_id", using: :btree
 
+  create_table "user_item_locations", force: true do |t|
+    t.integer  "user_item_id"
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_item_locations", ["location_id"], name: "index_user_item_locations_on_location_id", using: :btree
+  add_index "user_item_locations", ["user_item_id"], name: "index_user_item_locations_on_user_item_id", using: :btree
+
   create_table "user_items", force: true do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -101,6 +121,16 @@ ActiveRecord::Schema.define(version: 20140927141942) do
   end
 
   add_index "user_items", ["user_id"], name: "index_user_items_on_user_id", using: :btree
+
+  create_table "user_locations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_locations", ["location_id"], name: "index_user_locations_on_location_id", using: :btree
+  add_index "user_locations", ["user_id"], name: "index_user_locations_on_user_id", using: :btree
 
   create_table "user_sources", force: true do |t|
     t.string   "name",                    null: false
