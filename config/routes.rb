@@ -55,6 +55,11 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   namespace :api, :defaults => {:format => :json} do
-    resources :users
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: :true) do
+      devise_scope :user do
+        match '/sessions' => 'sessions#create', :via => :post
+        match '/sessions' => 'sessions#destroy', :via => :delete
+      end
+    end
   end
 end
