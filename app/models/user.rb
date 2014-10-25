@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :user_source
-  has_one :email, -> { where(:contact_type => :email) }, :class_name => :user_contact
   has_one :default_address, ->{ where(:is_default => 1) }, :class_name => :user_address
   has_one :user_location, ->{ where(:is_active => 1) }
   has_one :location, through: :user_location
@@ -16,8 +19,6 @@ class User < ActiveRecord::Base
   has_many :locations, :through => :user_locations
   alias_attribute :seller?, :is_seller
   alias_attribute :active?, :is_active
-  validates :email, :allow_nil => false, :uniqueness => true
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validates_uniqueness_of :username, allow_nil: true
   validates_format_of :username, :with => /[a-zA-Z0-9\.\_\-]+/
   readonly :email

@@ -1,8 +1,9 @@
 require 'digest/sha1'
 class UserIdentity < ActiveRecord::Base
 
-  enum :adapter => %w(password auth_token facebook google twitter)
+  enum :adapter => %w(auth_token facebook google twitter)
   belongs_to :user
+  validates_uniqueness_of :adapter_identifier, :scope => [:adapter]
 
   before_create do
     if adapter === UserIdentity.adapters[:password]
