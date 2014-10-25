@@ -4,7 +4,7 @@ class CreateUserIdentities < ActiveRecord::Migration
       t.references :user, index: true
       t.integer :adapter
       t.integer :adapter_identifier
-      t.string :hash
+      t.string :hash_string
       t.boolean :is_active, :default => false
 
       t.timestamps

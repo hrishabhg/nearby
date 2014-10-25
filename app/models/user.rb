@@ -16,5 +16,12 @@ class User < ActiveRecord::Base
   has_many :locations, :through => :user_locations
   alias_attribute :seller?, :is_seller
   alias_attribute :active?, :is_active
-
+  validates :email, :allow_nil => false, :uniqueness => true
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  validates_uniqueness_of :username, allow_nil: true
+  validates_format_of :username, :with => /[a-zA-Z0-9\.\_\-]+/
+  readonly :email
+  before_create do
+    self.register_date = Time.now
+  end
 end

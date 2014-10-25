@@ -3,8 +3,6 @@ class Api::ApiController < ApplicationController
 
   respond_to :json
 
-  rescue_from AbstractController::ActionNotFound, with: resource_not_found
-
   protected
   def authenticate_user!
     authenticate_token || render_unauthorized
@@ -12,7 +10,12 @@ class Api::ApiController < ApplicationController
 
   def authenticate_token
     authenticate_with_http_token do |token, options|
-      User.find_by(auth_token: token)
+      User.includes(:user_identities).where({
+                                                :user_identities => {
+                                                    :hash => token,
+                                                    :adapter => UserIdentity.adapters[:auth_token]
+                                                }
+                                            }).first
     end
   end
 
