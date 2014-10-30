@@ -43,3 +43,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'paperclip'
 
+gem 'polymer-rails'
+gem 'polymer-paper-rails'
+
