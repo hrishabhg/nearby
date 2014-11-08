@@ -5,8 +5,19 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= html_import_tag 'application' %>
 </head>
-<body>
+<body fullbleed="" unresolved="">
+<core-toolbar class="medium-tall">
+  <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+  <span flex>Jebkaat</span>
+  <paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
+  <paper-tabs class="bottom fit" selected="0">
+    <paper-tab>Home</paper-tab>
+    <paper-tab>About</paper-tab>
+    <paper-tab>News</paper-tab>
+  <paper-tabs>
+</core-toolbar>
 
 <%= yield %>
 
