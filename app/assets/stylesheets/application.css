@@ -17,7 +17,12 @@ body {
     font-family: sans-serif;
     background-color: #eee;
 }
+
 core-toolbar {
     background-color: #3e50b4;
     color: #ffffff;
+}
+
+.content {
+    padding: 20px;
 }

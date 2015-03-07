@@ -8,18 +8,35 @@
   <%= html_import_tag 'application' %>
 </head>
 <body fullbleed="" unresolved="">
-<core-toolbar class="medium-tall">
-  <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
-  <span flex>Jebkaat</span>
-  <paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
-  <paper-tabs class="bottom fit" selected="0">
-    <paper-tab>Home</paper-tab>
-    <paper-tab>About</paper-tab>
-    <paper-tab>News</paper-tab>
-  <paper-tabs>
-</core-toolbar>
-
-<%= yield %>
+<core-scaffhold>
+  <core-drawer-panel id="drawerPanel">
+    <core-header-panel navigation flex drawer>
+      <core-toolbar id="navheader">
+        <span>Menu</span>
+      </core-toolbar>
+      <core-menu>
+        <core-item label="One"></core-item>
+        <core-item label="Two"></core-item>
+      </core-menu>
+    </core-header-panel>
+    <core-header-panel main>
+      <core-toolbar class="medium-tall">
+        <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+        <span flex="">Title</span>
+        <paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
+        <paper-tabs class="bottom fit" selected="0">
+          <paper-tab>Home</paper-tab>
+          <paper-tab>About</paper-tab>
+          <paper-tab>FAQs</paper-tab>
+          <paper-tab>Contact</paper-tab>
+        </paper-tabs>
+      </core-toolbar>
+      <div class="content">
+        <%= yield %>
+      </div>
+    </core-header-panel>
+  </core-drawer-panel>
+</core-scaffhold>
 
 </body>
 </html>
